@@ -12,5 +12,17 @@ pipeline {
         sh 'echo deploying'
       }
     }
+    stage('verify') {
+      steps {
+        checkpoint 'verify deployment'
+        sh 'echo verifying deployment'
+      }
+    }
+    stage('blue<-->green') {
+      steps {
+        checkpoint 'activate deployment'
+        sh 'echo switching blue and green'
+      }
+    }
   }
 }
