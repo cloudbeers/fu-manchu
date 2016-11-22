@@ -43,7 +43,6 @@ pipeline {
                   echo 'second block'
                   sh 'pwd'
                   sh 'sleep 10'
-                }
                 },
                 thirdBlock: {
                   echo 'second block'
