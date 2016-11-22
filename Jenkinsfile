@@ -32,7 +32,6 @@ pipeline {
     }
     stage('Verify') {
       steps {
-        checkpoint 'verify deployment'
             parallel(
                 firstBlock: {
                   echo 'first block'
@@ -50,7 +49,6 @@ pipeline {
                   sh 'sleep 20'
                 }
             )
-        sh 'echo verifying deployment'
       }
     }
     stage('Deploy') {
