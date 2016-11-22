@@ -8,6 +8,22 @@ pipeline {
         sh 'echo build complete'
       }
     }
+    stage('Forked tests') {
+      steps {
+            parallel(
+                firstBlock: {
+                  echo 'first block'
+                  sh 'pwd'
+                  sh 'sleep 10'
+                },
+                secondBlock: {
+                  echo 'second block'
+                  sh 'pwd'
+                  sh 'sleep 10'
+                }
+            )
+      }
+    }
     stage('Stage') {
       steps {
         checkpoint 'ready to deploy'
