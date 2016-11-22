@@ -1,3 +1,11 @@
-node {
-  sh 'echo hello world'
+pipeline {
+  agent any
+  stages {
+    stage('build') {
+      sh 'echo building'
+    }
+    stage('deploy') {
+      sh 'echo deploying'
+    }
+  }
 }
