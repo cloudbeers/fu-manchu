@@ -1,3 +1,3 @@
 # fu-manchu
 
-This is the fu manchu project
+This is the awesome fu manchu project
