@@ -12,9 +12,11 @@ pipeline {
       steps {
             parallel(
                 firstBlock: {
+                  workspace {
                   echo 'first block'
                   sh 'pwd'
                   sh 'sleep 10'
+                  }
                 },
                 secondBlock: {
                   echo 'second block'
