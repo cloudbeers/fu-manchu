@@ -14,7 +14,7 @@ pipeline {
                 firstBlock: {
                   echo 'first block'
                   sh 'pwd'
-                  sh 'sleep 10'
+                  sh 'sleep 20'
                 },
                 secondBlock: {
                   echo 'second block'
@@ -33,6 +33,24 @@ pipeline {
     stage('Verify') {
       steps {
         checkpoint 'verify deployment'
+            parallel(
+                firstBlock: {
+                  echo 'first block'
+                  sh 'pwd'
+                  sh 'sleep 10'
+                },
+                secondBlock: {
+                  echo 'second block'
+                  sh 'pwd'
+                  sh 'sleep 10'
+                }
+                },
+                thirdBlock: {
+                  echo 'second block'
+                  sh 'pwd'
+                  sh 'sleep 20'
+                }
+            )
         sh 'echo verifying deployment'
       }
     }
